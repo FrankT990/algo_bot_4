@@ -76,6 +76,13 @@ while (True):
                          },
                          take_profit={'limit_price': price * 1.05})
     print("trade taken")
+    flag = True
+    while (flag):
+      position = api.get_open_position(tkr)
+      if len(position) == 1:
+        time.sleep(300)
+      else:
+        flag = False
   else:
     print("Loop: " + str(count))
     time.sleep(300)
